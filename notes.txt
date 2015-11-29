@@ -1,3 +1,7 @@
 charles1:
 
 aggressive team, approach flag + 100, approach enemy + 100, avoid fire + 100, hit target + 100. is able to approach flag and approach enemy well. is able to go around some small walls when approaching the enemy. has trouble going around longer walls.
+
+charles2:
+
+defensive team, stand ground +40, stick together +100, approach enemy -40, approach flag 0, hit target 100, avoid fire 100
