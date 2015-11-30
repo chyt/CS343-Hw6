@@ -1,1 +1,51 @@
-Report:
+
+Our team was created by building and training 5 distinct teams and combining them all together to create one versatile team. The final team contains two of the best genomes from each of the teams below so that in battle, OpenNERO creates a team of 50 with 10 genomes from each team. We did this to allow for different behaviors among different groups within our team.
+
+The five teams and the methods we used to train them are as follows:
+amro1.txt
+    We created this team to be more defensive.
+    For training, we set its parameters to:
+        avoid fire: 100
+        stick together: 50
+        hit target: 100
+        approach enemy: 30
+    This created a team who's priority is to avoid taking damage from the enemy. If there is no damage being taken, this team will stay together and slowly approach an enemy (until that enemy starts firing at them).
+    The resulting behavior was that when this team was attacked by a turret, it would retreat until it was out of the turret's range and then surround the turret in a semi-circle, which allows all members of the team to be able to attack the enemy at once.
+
+amro2.txt
+    We created this as one of our aggressive teams.
+    For training, we set its parameters to:
+        approach enemy: 100
+        hit target: 100
+        stand ground: -100
+    This team's primary purpose is to approach the enemy head on, which is provided by setting approach enemy and hit target to 100. The reason we punished the team for standing ground is that we didn't want the team to ever stay stationary, so that it's always moving around the enemies. Furthermore, if the enemy were behind a wall, the team would approach the enemy and just end up running straight into the wall and continuing to do so, not making any progress. By punishing genomes for standing their ground, and forcing the team to move, we introduced some variability in their movement so that they change direction when running straight into the wall and would hopefully be able to find their way around the wall to the enemy.
+
+amro3.txt
+    This team was meant for exploration (ie finding the enemy on the other side of the wall).
+    For training, we set its parameters to:
+        stand ground: -100
+        stick together: -100
+        hit target: 100
+        approach enemy: 30
+    This team would have genomes move around around the terrain randomly, but with a general direction towards the enemy. We did this to ensure we were able to find the enemy behind the wall regardless of where they are and be able to attack from many different sides.
+
+charles1.txt
+   This is our other aggressive team.
+   For training, we set its parameters to:
+       approach flag: 100
+       approach enemy: 100
+       avoid fire: 100
+       hit target: 100
+   We trained this team to approach the flag and then we trained it to approach the flag around walls by placing small walls between the genomes and the flag. 
+   Afterwards, we used a similar strategy for approaching the enemy turret. Therefore, this team is able to approach the enemy even if there are small walls in the way, but has some trouble going around longer walls.
+   In addition to approaching the enemy, this team also attempts to avoid fire simultaneously. We hoped that it would lead to a team of genomes that can use walls and other genomes as protection from the enemy while still attacking and approaching the enemy.
+
+charles2.txt
+    This is another defensive team.
+    For training, we set its parameters to:
+        stand ground: 40
+        stick togehter: 100
+        approach enemy: -40
+        hit target: 100
+        avoid fire: 100
+    During battles, this team remains in the middle, between the other defensive and aggressive teams. We set rewards for standing ground and sticking together so that the genomes remain in a tight group that doesn't move very quickly. Because approach enemy is negative and avoid fire is set to 100, this team will move away from the enemy, but it will move away slowly and steadily while still firing at the enemy. 
